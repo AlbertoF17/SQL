@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../estilos.css" title="style">
+    <meta charset="utf8">
+    <meta name="description" content="página con etiquetas semánticas">
+    <meta name="keywords" content="HTML, etiquetas">
+    <meta name="language" content="ES">
+    <meta name="author" content="Alberto Fernández">
+    <meta name="robots" content="index, follow">
+    <meta name="revised" content="Martes, 15 de Noviembre de 2022, 18:40 pm">
+    <meta name="viewport" content="width = device-width, initial scale=1.0">
+    <meta http-equiv="refresh" content="300; URL=nuevapagina.html">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge, chrome1">
+    <title>Etiquetas Semánticas</title>
+</head>
+
+<body>
+    <header>
+        <hgroup>
+            <h1>Elementos del Body: Etiquetas semánticas</h1>
+            <h2 class="tagline">
+                Trabajo de Alberto Fernández
+            </h2>
+        </hgroup>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="../index.html">home</a></li>
+            <li><a href="../subpages/blog.html">blog</a></li>
+            <li><a href="../subpages/gallery.html">gallery</a></li>
+            <li><a href="../subpages/about.html">about</a></li>
+        </ul>
+    </nav>
+    <section class="contenedor-about">
+        <article class="formulario">
+            <h3>Mándanos un correo</h3>
+            <form>
+                <div class="Nombre">
+                    <label for="name">Nombre: </label>
+                    <input type="text" name="name">
+                </div>
+
+                <div class="Telefono">
+                    <label for="telefono">Teléfono de Contacto: </label>
+                    <input type="tel" name="telefono">
+                </div>
+
+                <div class="Correo">
+                    <label for="correo">Correo Electrónico: </label>
+                    <input type="email" name="correo">
+                </div>
+
+                <div class="Asunto">
+                    <label for="Asunto">Asunto: </label>
+                    <input type="text" name="Asunto">
+                </div>
+
+                <div class="Mensaje">
+                    <label for="mensaje">Mensaje: </label>
+                    <p><textarea></textarea></p>
+                </div>
+                <div>
+                    <button class="boton" type="submit">Enviar</button>
+                </div>
+            </form>
+        </article>
+        <article class="login">
+            <h3>Inicia sesión</h3>
+            <form>
+                <div class="user-login">
+                    <label for="user">Usuario o Correo: </label>
+                    <input type="text" name="user">
+                </div>
+                <div class="pass-login">
+                    <label for="user">Contraseña: </label>
+                    <input type="password" name="pass-login">
+                </div>
+                <div>
+                    <button class="boton" type="submit">Iniciar Sesión</button>
+                </div>
+            </form>
+        </article>
+
+        <article class="signup">
+            <h3>Regístrate</h3>
+            <form>
+                <div class="user-register">
+                    <label for="register">Usuario: </label>
+                    <input type="text" name="register">
+                </div>
+                <div class="email-register">
+                    <label for="email-register">Correo Electrónico: </label>
+                    <input type="email" name="email-register">
+                </div>
+                <div class="pass-register">
+                    <label for="pass-register">Contraseña: </label>
+                    <input type="password" name="pass-register">
+                </div>
+
+                <div class="pass-register">
+                    <label for="pass-register">Confirmar Contraseña: </label>
+                    <input type="password" name="pass-register">
+                </div>
+                <div>
+                    <button class="boton" type="submit">Registrarse</button>
+                </div>
+            </form>
+        </article>
+    </section>
+    <footer>
+        <p>§</p>
+        <p>© 2022 <a href="#">Alberto Fernández</a></p>
+    </footer>
+</body>
+
+</html>
