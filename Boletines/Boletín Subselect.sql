@@ -1,14 +1,14 @@
 -- 0. Ciudades que tienen menos clientes (customers) que la ciudad de Buenos Aires.
-SELECT City, count(*) AS "Cantidad de Clientes" FROM customers GROUP BY city HAVING "Cantidad de Clientes"<(SELECT count(*) FROM customers WHERE City="Buenos Aires");
+SELECT City, count(*) AS "Cantidad de Clientes" FROM customers GROUP BY city HAVING count(*)<(SELECT count(*) FROM customers WHERE City="Buenos Aires") ORDER BY count(*) DESC;
 
 -- 1. Productos cuyo valor de unidades en stock sea superior al valor máximo de unidades en stock de los productos de la categoría 4.
-SELECT * FROM products WHERE UnitsInStock > (SELECT MAX(UnitsInStock) FROM products WHERE CategoryID=4);
+SELECT * FROM products WHERE UnitsInStock > (SELECT MAX(UnitsInStock) FROM products WHERE CategoryID=4) ORDER BY UnitsInStock ASC;
 
 -- 2. Nombre de los empleados que son jefes.
 SELECT FirstName FROM employees WHERE ReportsTo IS NULL; -- (WTF se supone q necesita subselect)
 
 -- 3. Productos cuya categoría empiezan por la letra C.
-SELECT ProductName FROM products WHERE CategoryID IN (SELECT CategoryID FROM categories WHERE CategoryName LIKE "C%");
+SELECT prod.ProductName, cat.CategoryName FROM products AS prod JOIN categories AS cat ON (prod.CategoryID = cat.CategoryID) WHERE cat.CategoryID IN (SELECT CategoryID FROM categories WHERE CategoryName LIKE "C%");
 
 -- 4. Pedidos cuyo valor de carga (Freight) está por encima de la media.
 SELECT * FROM orders WHERE Freight > (SELECT AVG(Freight) FROM orders) ORDER BY Freight ASC;
@@ -31,21 +31,28 @@ SELECT FirstName, LastName, year(curdate())- year(BirthDate) AS "Edad" , BirthDa
 SELECT * FROM employees WHERE year(curdate())- year(BirthDate) > (SELECT year(curdate())- year(BirthDate) FROM employees WHERE FirstName="Margaret" AND LastName="Peacock");
 
 -- 10. Escribir una consulta para recuperar el ID de pedido, ID de cliente y nombre de compañía. Trabaje sin hacer joins entre orders y customers.
--- SELECT OrderID, CustomerID, CompanyName FROM orders WHERE () ;
+SELECT OrderID, (SELECT CustomerID FROM orders AS ord WHERE ord.OrderID = orddet.orderID) AS "CustomerID", (SELECT prod.SupplierID FROM products AS prod WHERE orddet.ProductID = prod.ProductID) AS "CompanyName"
+FROM orderdetails AS orddet;
 
 -- 11. Nombre de compañías de clientes que no han hecho pedidos en el 1996. No usar JOIN.
--- SELECT CompanyName FROM 
+-- NO FUNCIONA
+SELECT OrderID, (SELECT orddet.OrderID FROM orderdetails AS orddet WHERE orddet.OrderID = ord.OrderID),
+(SELECT prod.SupplierID FROM products AS prod WHERE orddet.ProductID = prod.ProductID) FROM orders AS ord WHERE YEAR(OrderDate)!=1996;
 
 -- 12. Nombre de productos suministrados por proveedores de Japón. No usar JOIN.
+SELECT ProductName FROM products WHERE SupplierID = (SELECT SupplierID FROM suppliers WHERE Country="Japan");
 
 -- 13. Hacer una subconsulta para obtener los empleados que tienen como jefe a Andrew Fuller.
+SELECT FirstName FROM employees WHERE ReportsTo = (SELECT EmployeeID FROM employees WHERE FirstName = "Andrew" AND LastName="Fuller");
 
 -- 14. Repetir para mostrar los que no tienen como jefe a Andrew.
+SELECT FirstName FROM employees WHERE ReportsTo != (SELECT EmployeeID FROM employees WHERE FirstName = "Andrew" AND LastName="Fuller");
 
 -- 15. Recuperar los ID de productos con un precio unitario superior al precio unitario medio.
-SELECT ProductID FROM products WHERE UnitPrice>(SELECT AVG(UnitPrice) FROM products);
+SELECT ProductID, UnitPrice FROM products WHERE UnitPrice>(SELECT AVG(UnitPrice) FROM products) ORDER BY UnitPrice ASC;
 
 -- 16. Subconsulta para obtener los nombres de categorias con un número de productos superior al número de  productos que pertenecen a la categoría 'condiments'.
+SELECT CategoryName FROM categories WHERE count(*) > (SELECT count(*) FROM categories WHERE CategoryName = "Condiments");
 
 -- 17. Subconsulta para obtener los ID de aquellos empleados que tienen un número de pedidos superior a la media de pedidos por empleado.
 
