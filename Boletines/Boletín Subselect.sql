@@ -49,33 +49,33 @@ SELECT ProductID FROM products WHERE UnitPrice>(SELECT AVG(UnitPrice) FROM produ
 
 -- 17. Subconsulta para obtener los ID de aquellos empleados que tienen un número de pedidos superior a la media de pedidos por empleado.
 
--- 18: productos cuyo valor de unidades en stock sea superior al valor máximo de unidades en stock de los productos de la categoría 1 y 3.
+-- 18. productos cuyo valor de unidades en stock sea superior al valor máximo de unidades en stock de los productos de la categoría 1 y 3.
 
--- 19: escribir una consulta para recuperar todos los datos de los empleados que tienen una edad inferior a la edad de Anne Dodsworth o Janet Leverling.
+-- 19. escribir una consulta para recuperar todos los datos de los empleados que tienen una edad inferior a la edad de Anne Dodsworth o Janet Leverling.
 
--- 20: escribir una consulta para recuperar los paises que tiene mas proveedores que la suma de proveedores que tienen Brasil y España.
+-- 20. escribir una consulta para recuperar los paises que tiene mas proveedores que la suma de proveedores que tienen Brasil y España.
 
--- 21: escribir una consulta para recuperar el nombre de la compañía e ID de proveedor de aquellos proveedores que viven en un país que tiene mas
+-- 21. escribir una consulta para recuperar el nombre de la compañía e ID de proveedor de aquellos proveedores que viven en un país que tiene mas
 -- proveedores que la suma de proveedores que tienen Brasil y España.
 
--- 22: ciudades que tienen más clientes que Madrid.
+-- 22. ciudades que tienen más clientes que Madrid.
 
--- 23: ciudades que tienen más clientes que Madrid y Sevilla o Seville.
+-- 23. ciudades que tienen más clientes que Madrid y Sevilla o Seville.
 
--- 24: ciudades que tienen más clientes que Madrid o Sevilla o Seville.
+-- 24. ciudades que tienen más clientes que Madrid o Sevilla o Seville.
 
--- 25: ciudades que tienen más clientes que la suma de clientes de Madrid, Sevilla o Seville y Lisboa.
+-- 25. ciudades que tienen más clientes que la suma de clientes de Madrid, Sevilla o Seville y Lisboa.
 
--- 26: Escribir una consulta para imprimir el nombre, apellidos y edad de aquellos empleados que tienen una edad igual o superior a la edad media.
+-- 26. Escribir una consulta para imprimir el nombre, apellidos y edad de aquellos empleados que tienen una edad igual o superior a la edad media.
 
--- 27: Escribir una consulta para imprimir el nombre, apellidos y edad de aquellos empleados que tienen una edad igual o superior a la edad media de los
+-- 27. Escribir una consulta para imprimir el nombre, apellidos y edad de aquellos empleados que tienen una edad igual o superior a la edad media de los
 -- empleados con el cargo Sales Representative.
 
--- 28: Productos cuyo valor de unidades en stock sea superior al valor mínimo de unidades en stock de los productos de la categoría 4 o superior al valor
+-- 28. Productos cuyo valor de unidades en stock sea superior al valor mínimo de unidades en stock de los productos de la categoría 4 o superior al valor
 -- mínimo de unidades en stock de los productos de la categoría 6.
 
--- 29: Productos cuya categoría empieza por la letra C o D.
+-- 29. Productos cuya categoría empieza por la letra C o D.
 
--- 30: Ciudades que tienen menos clientes (customers) que la ciudad de Buenos Aires y Munich.
+-- 30. Ciudades que tienen menos clientes (customers) que la ciudad de Buenos Aires y Munich.
 
--- 31: empleados que son más jóvenes que Margaret, Laura y Michael.
+-- 31. empleados que son más jóvenes que Margaret, Laura y Michael.
